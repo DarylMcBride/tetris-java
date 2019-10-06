@@ -9,13 +9,15 @@ public class Window {
 	public static final int WIDTH = 300, HEIGHT = 600;
 
 	public Window() {
+		//window settings
 		window = new JFrame("Tetris Java");
 		window.setSize(WIDTH, HEIGHT);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(false);
-		
 		window.setLocationRelativeTo(null);
 		
+		
+		//game environment
 		board = new Board();
 		
 		window.add(board);

@@ -9,7 +9,13 @@ import javax.swing.JPanel;
 
 public class Board extends JPanel {
 	
+	
+	private final int BLOCKSIZE = 10, BOARDHEIGHT= 20, BOARDWIDTH = 10;
+	
+	
 	private BufferedImage tiles;
+	private int[][] board = new int[BOARDWIDTH][BOARDHEIGHT];
+	
 	
 	public Board() {
 		
@@ -26,7 +32,14 @@ public class Board extends JPanel {
 		
 		super.paintComponent(g);
 		
-		g.drawImage(tiles, 0,0, null);
+		for(int i = 0; i < BOARDHEIGHT; i++) {
+			g.drawLine(0, i*BLOCKSIZE, BOARDWIDTH*BLOCKSIZE, i*BLOCKSIZE);
+		}
+		
+		for(int i = 0; i < BOARDHEIGHT; i++) {
+			g.drawLine(i*BLOCKSIZE, 0, i*BLOCKSIZE, BOARDHEIGHT*BOARDWIDTH);
+		}
+		
 		
 		
 		
