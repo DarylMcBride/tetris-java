@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class Board extends JPanel {
 	
 	
-	private final int BLOCKSIZE = 10, BOARDHEIGHT= 20, BOARDWIDTH = 10;
+	private final int BLOCKSIZE = 30, BOARDHEIGHT= 20, BOARDWIDTH = 10;
 	
 	
 	private BufferedImage tiles;
@@ -37,7 +37,7 @@ public class Board extends JPanel {
 		}
 		
 		for(int i = 0; i < BOARDHEIGHT; i++) {
-			g.drawLine(i*BLOCKSIZE, 0, i*BLOCKSIZE, BOARDHEIGHT*BOARDWIDTH);
+			g.drawLine(i*BLOCKSIZE, 0, i*BLOCKSIZE, BOARDHEIGHT*BLOCKSIZE);
 		}
 		
 		
