@@ -72,5 +72,9 @@ public class Board extends JPanel {
 		}
 
 	}
+	
+	public int getBlockSize() {
+		return BLOCKSIZE;
+	}
 
 }
