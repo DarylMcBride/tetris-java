@@ -21,6 +21,14 @@ public class Shape {
 	
 	public void render(Graphics g) {
 		
+		
+		for (int i = 0; i < coordinates.length; i++) {
+			for (int j = 0; j < coordinates[i].length; j++) {
+				if (coordinates[i][j] != 0) {
+					g.drawImage(block, j*30, i*30, null);
+				}
+			}
+		}
 	}
 	
 

@@ -14,7 +14,9 @@ public class Board extends JPanel {
 	private BufferedImage tiles;
 	private int[][] board = new int[BOARDWIDTH][BOARDHEIGHT];
 	private Shape[] shapes = new Shape[6];
-
+	private Shape currentShape;
+	
+	
 	public Board() {
 
 		// shape textures
@@ -52,11 +54,14 @@ public class Board extends JPanel {
 		shapes[6] = new Shape(tiles.getSubimage(0, 0, BLOCKSIZE, BLOCKSIZE), new int[][] { { 1, 1, 1 }, { 1, 0, 0 } },
 				this);
 
+		currentShape = shapes[5];
 	}
 
 	public void paintComponent(Graphics g) {
 
 		super.paintComponent(g);
+		
+		currentShape.render(g);
 
 		for (int i = 0; i < BOARDHEIGHT; i++) {
 			g.drawLine(0, i * BLOCKSIZE, BOARDWIDTH * BLOCKSIZE, i * BLOCKSIZE);
