@@ -1,22 +1,28 @@
 package tetris;
 
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
-public class Board extends JPanel {
+public class Board extends JPanel implements KeyListener {
 
-	private final int BLOCKSIZE = 30, BOARDHEIGHT = 20, BOARDWIDTH = 10;
+	private final int BLOCKSIZE = 30, BOARDHEIGHT = 20, BOARDWIDTH = 10, FPS = 60, DELAY = 1000/FPS;
+	
 
 	private BufferedImage tiles;
 	private int[][] board = new int[BOARDWIDTH][BOARDHEIGHT];
 	private Shape[] shapes = new Shape[6];
 	private Shape currentShape;
 	
-	
+	private Timer timer;
 	public Board() {
 
 		// shape textures
@@ -26,6 +32,17 @@ public class Board extends JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		timer = new Timer(DELAY, new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				update();
+				repaint();
+			}
+			
+		});
 
 		// shape creation
 		// Z
@@ -54,7 +71,7 @@ public class Board extends JPanel {
 		shapes[6] = new Shape(tiles.getSubimage(0, 0, BLOCKSIZE, BLOCKSIZE), new int[][] { { 1, 1, 1 }, { 1, 0, 0 } },
 				this);
 
-		currentShape = shapes[5];
+		currentShape = shapes[3];
 	}
 
 	public void paintComponent(Graphics g) {
@@ -73,8 +90,30 @@ public class Board extends JPanel {
 
 	}
 	
+	public void update() {
+		currentShape.update();
+	}
 	public int getBlockSize() {
 		return BLOCKSIZE;
+	}
+
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
