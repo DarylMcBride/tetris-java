@@ -14,15 +14,15 @@ import javax.swing.Timer;
 
 public class Board extends JPanel implements KeyListener {
 
-	private final int BLOCKSIZE = 30, BOARDHEIGHT = 20, BOARDWIDTH = 10, FPS = 60, DELAY = 1000/FPS;
-	
+	private final int BLOCKSIZE = 30, BOARDHEIGHT = 20, BOARDWIDTH = 10, FPS = 60, DELAY = 1000 / FPS;
 
 	private BufferedImage tiles;
 	private int[][] board = new int[BOARDWIDTH][BOARDHEIGHT];
-	private Shape[] shapes = new Shape[6];
+	private Shape[] shapes = new Shape[7];
 	private Shape currentShape;
-	
+
 	private Timer timer;
+
 	public Board() {
 
 		// shape textures
@@ -32,7 +32,7 @@ public class Board extends JPanel implements KeyListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		timer = new Timer(DELAY, new ActionListener() {
 
 			@Override
@@ -41,7 +41,7 @@ public class Board extends JPanel implements KeyListener {
 				update();
 				repaint();
 			}
-			
+
 		});
 
 		// shape creation
@@ -77,7 +77,7 @@ public class Board extends JPanel implements KeyListener {
 	public void paintComponent(Graphics g) {
 
 		super.paintComponent(g);
-		
+
 		currentShape.render(g);
 
 		for (int i = 0; i < BOARDHEIGHT; i++) {
@@ -89,31 +89,36 @@ public class Board extends JPanel implements KeyListener {
 		}
 
 	}
-	
+
 	public void update() {
 		currentShape.update();
 	}
+
 	public int getBlockSize() {
 		return BLOCKSIZE;
 	}
 
-
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		if (e.getKeyCode() == KeyEvent.VK_A) {
+			currentShape.setDeltaX(-1);
+		}
+		if (e.getKeyCode() == KeyEvent.VK_D) {
+			currentShape.setDeltaX(1);
+		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
