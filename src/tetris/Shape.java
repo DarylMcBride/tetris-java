@@ -5,24 +5,36 @@ import java.awt.image.BufferedImage;
 
 public class Shape {
 	
+	private final int DEFAULTSPEED = 600, DOWNSPEED = 10;
+	
 	private BufferedImage block;
 	private int[][] coordinates;
 	private Board board;
 	private int deltaX = 0;
 	private int xPosition, yPosition;
+	private long time, lastTime;
 	
 	public Shape(BufferedImage block, int[][] coordinates, Board board) {
 		this.block = block;
 		this.coordinates=coordinates;
 		this.board=board;
+		
+		
 		xPosition= 4;
 		yPosition= 0;
 	}
 	
 	public void update() {
-	 xPosition += deltaX;
-	 
-	 deltaX = 0;
+		
+	//check to add colision to side of window
+	if (!(xPosition + deltaX + coordinates[0].length > 10) && !(xPosition + deltaX < 0)) {
+		
+		
+		 xPosition += deltaX;
+		 
+		 deltaX = 0;
+	}
+	
 	}
 	
 	public void render(Graphics g) {
