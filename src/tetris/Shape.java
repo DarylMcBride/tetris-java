@@ -19,13 +19,16 @@ public class Shape {
 		this.coordinates=coordinates;
 		this.board=board;
 		
+		time = 0;
+		lastTime = System.currentTimeMillis();
 		
 		xPosition= 4;
 		yPosition= 0;
 	}
 	
 	public void update() {
-		
+	time += System.currentTimeMillis() - lastTime;
+	lastTime = System.currentTimeMillis();
 	//check to add colision to side of window
 	if (!(xPosition + deltaX + coordinates[0].length > 10) && !(xPosition + deltaX < 0)) {
 		
@@ -33,6 +36,11 @@ public class Shape {
 		 xPosition += deltaX;
 		 
 		 deltaX = 0;
+	}
+	
+	if (time > DEFAULTSPEED) {
+		yPosition++;
+		time = 0;
 	}
 	
 	}
