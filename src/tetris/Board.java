@@ -43,6 +43,8 @@ public class Board extends JPanel implements KeyListener {
 			}
 
 		});
+		
+		timer.start();
 
 		// shape creation
 		// Z

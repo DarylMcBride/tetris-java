@@ -22,6 +22,8 @@ public class Window {
 		
 		window.add(board);
 		
+		window.addKeyListener(board);
+		
 		window.setVisible(true);
 	}
 

@@ -20,7 +20,9 @@ public class Shape {
 	}
 	
 	public void update() {
-	
+	 xPosition += deltaX;
+	 
+	 deltaX = 0;
 	}
 	
 	public void render(Graphics g) {
