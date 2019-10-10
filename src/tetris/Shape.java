@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 
 public class Shape {
 	
-	private final int DEFAULTSPEED = 600, DOWNSPEED = 10;
+	private final int DEFAULTSPEED = 600, DOWNSPEED = 60;
 	
 	private BufferedImage block;
 	private int[][] coordinates;
@@ -13,6 +13,7 @@ public class Shape {
 	private int deltaX = 0;
 	private int xPosition, yPosition;
 	private long time, lastTime;
+	private int currentSpeed;
 	
 	public Shape(BufferedImage block, int[][] coordinates, Board board) {
 		this.block = block;
@@ -21,7 +22,7 @@ public class Shape {
 		
 		time = 0;
 		lastTime = System.currentTimeMillis();
-		
+		currentSpeed = DEFAULTSPEED;
 		xPosition= 4;
 		yPosition= 0;
 	}
@@ -38,7 +39,7 @@ public class Shape {
 		 deltaX = 0;
 	}
 	
-	if (time > DEFAULTSPEED) {
+	if (time > currentSpeed) {
 		yPosition++;
 		time = 0;
 	}
@@ -58,9 +59,15 @@ public class Shape {
 		}
 	}
 	
+	public void downardSpeed() {
+		currentSpeed=DOWNSPEED;
+	}
+	
 	public void setDeltaX(int deltaX) {
 		this.deltaX = deltaX;
 	}
+	
+	
 	
 
 }

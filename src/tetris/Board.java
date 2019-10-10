@@ -109,6 +109,9 @@ public class Board extends JPanel implements KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_D) {
 			currentShape.setDeltaX(1);
 		}
+		if (e.getKeyCode() == KeyEvent.VK_S) {
+			currentShape.downardSpeed();
+		}
 	}
 
 	@Override
