@@ -6,7 +6,7 @@ public class Window {
 	private JFrame window;
 	private Board board;
 
-	public static final int WIDTH = 300, HEIGHT = 600;
+	public static final int WIDTH = 300, HEIGHT = 630;
 
 	public Window() {
 		//window settings

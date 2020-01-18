@@ -111,13 +111,17 @@ public class Board extends JPanel implements KeyListener {
 		}
 		if (e.getKeyCode() == KeyEvent.VK_S) {
 			currentShape.downardSpeed();
+		} if (e.getKeyCode() == KeyEvent.VK_W) {
+			currentShape.rotate();
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-
+		if (e.getKeyCode() == KeyEvent.VK_S) {
+			currentShape.normalSpeed();
+		}
 	}
 
 	@Override
