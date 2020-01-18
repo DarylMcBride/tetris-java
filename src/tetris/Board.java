@@ -91,6 +91,10 @@ public class Board extends JPanel implements KeyListener {
 		}
 
 	}
+	
+	public void setNextShape() {
+		int index = (int)(Math.random()*BOARDHEIGHT);
+	}
 
 	public void update() {
 		currentShape.update();

@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 public class Shape {
 	
 	private final int DEFAULTSPEED = 600, DOWNSPEED = 60;
-	
+	private boolean collision = false;
 	private BufferedImage block;
 	private int[][] coordinates;
 	private Board board;
@@ -30,6 +30,12 @@ public class Shape {
 	public void update() {
 	time += System.currentTimeMillis() - lastTime;
 	lastTime = System.currentTimeMillis();
+	
+	
+	
+	if (collision) {
+		
+	}
 	//check to add colision to side of window
 	if (!(xPosition + deltaX + coordinates[0].length > 10) && !(xPosition + deltaX < 0)) {
 		 xPosition += deltaX;
@@ -40,6 +46,8 @@ public class Shape {
 			yPosition++;
 			time = 0;
 		}
+	} else {
+		collision = true;
 	}
 	
 
